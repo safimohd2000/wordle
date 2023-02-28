@@ -1,9 +1,15 @@
-
+var wordarray = ["LIGHT", "SOUND", "FIGHT", "WRONG", "SLIME",
+    "CHANGE", "COMMIT", "WORDLE", "SHUTTER", "SUPERB", "LETTER", "COMPETE"]
 var currentword = '';
-var targetword = 'FIGHT';
+var newWordSize = 25;
+var targetword = "";
+var supportedWordSize = 5;
+rowaddition(25);
+// var wordsize = 5;
+
 var rowcounter = 0;
 var maxrowcounter = 6;
-var supportedWordSize = 5;
+console.log("this is suportedwordsize :${supportedWordSize}");
 document.querySelectorAll('.keys').forEach(e => {
     e.id = e.innerText;
     // console.log(e.id  +""+ e.innerText )
@@ -24,11 +30,6 @@ document.querySelectorAll('.keys').forEach(e => {
             }
         }
         if (this.id == 'ENTER') {
-            if (currentword == targetword) {
-                alert('CONGRATUATION YOU WON')
-                return;
-
-            }
             if (currentword.length < supportedWordSize) {
                 alert('PLEASE COMPLETE THE WORD')
                 return
@@ -56,6 +57,12 @@ document.querySelectorAll('.keys').forEach(e => {
                     }
 
                 }
+                if (currentword == targetword) {
+                    alert('CONGRATUATION YOU WON')
+                    return;
+
+
+                }
                 currentword = "";
                 rowcounter++;
                 if (rowcounter == maxrowcounter) {
@@ -66,7 +73,9 @@ document.querySelectorAll('.keys').forEach(e => {
             }
 
         }
-        if (currentword.length <= supportedWordSize) {
+
+        if (currentword.length < supportedWordSize) {
+
             document.querySelectorAll('.items')[(supportedWordSize * rowcounter) + currentword.length].innerText = e.innerText
             currentword = currentword + e.innerText;
             //  rowcounter++;
@@ -75,7 +84,79 @@ document.querySelectorAll('.keys').forEach(e => {
 
 })
 
+function rowaddition(newWordSize) {
+    currentword = '';
+    rowcounter = 0;
 
+    document.querySelectorAll('.keys').forEach(e => {
+        e.style.backgroundColor = "darkgrey";
+    })
+    var newwordarray = wordarray.filter(W => W.length == supportedWordSize)
+    targetword = newwordarray[Math.floor(supportedWordSize * (Math.random(1)))]
+    console.log
+    document.getElementById("gamediv").innerHTML = "";
+    for (let i = 0; i < newWordSize; i++) {
+        var newcol = document.createElement('div');
+
+        newcol.className = "items";
+        if (supportedWordSize == 5) {
+            var diw = document.getElementById('gamediv');
+            diw.className = "gamecontainer"
+            // diw.style.width=340(px);
+            // console.log (diw.width)
+            diw.appendChild(newcol);
+
+        }
+        if (supportedWordSize == 6) {
+            console.log(supportedWordSize);
+            var diw = document.getElementById('gamediv');
+            diw.className = "gamecontainer1"
+            // diw.style.width=340(px);
+            // console.log (diw.width)
+            diw.appendChild(newcol);
+
+        }
+        if (supportedWordSize == 7) {
+            var diw = document.getElementById('gamediv');
+            diw.className = "gamecontainer2"
+            // diw.style.width=340(px);
+            // console.log (diw.width)
+            diw.appendChild(newcol);
+
+
+        }
+
+
+
+
+    }
+
+}
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.querySelectorAll('body')[0].style.backgroundColor = "black";
+        document.querySelectorAll('body')[0].style.color = "white";
+        document.querySelectorAll('.items').forEach(el => {
+            el.style.borderColor = "white";
+        });
+
+
+    }
+    else {
+        document.querySelectorAll('body')[0].style.backgroundColor = "white";
+        document.querySelectorAll('body')[0].style.color = "black";
+        document.querySelectorAll('.items').forEach(el => {
+            el.style.borderColor = "black";
+        });
+    }
+
+}
+function openSettingsDialog() {
+    document.getElementById('settingsDialog').showModal();
+}
+function closeSettingsDialog() {
+    document.getElementById('settingsDialog').close();
+}
 
 
 

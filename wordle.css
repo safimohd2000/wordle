@@ -26,8 +26,37 @@
     display: flex;
     justify-content: center;
   }
+  #settingsDialog{
+    position:absolute;
+    top: 35%;
+    left: 40%;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+  }
   .gamecontainer {
     width: 280px;
+    /* width: 340px; */
+    height: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    align-self:center;
+    justify-content: center;
+    margin:40px;
+  }
+  .gamecontainer1{
+    /* width: 280px; */
+    width: 340px;
+    height: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    align-self:center;
+    justify-content: center;
+    margin:40px;
+  }
+  .gamecontainer2 {
+    /* width: 280px; */
+    width: 380px;
     height: 350px;
     display: flex;
     flex-wrap: wrap;
@@ -44,6 +73,7 @@
     padding-left: 17px;
     padding-top: 15px;
   }
+  
   /* .keyboardcontainer {
     width: 600px;
     flex-basis: 150px;
@@ -92,4 +122,13 @@
   #keyback{
     flex-basis: 85px;
   }
-  
+  /* #buttondiv{
+
+    display: none;
+  }
+   */
+   #list{
+
+    display:none;
+
+   }

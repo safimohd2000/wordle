@@ -1,57 +1,59 @@
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <!-- <script src="script.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="wordle.css" />
-    <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"
-  />
-  </head>
-  <body>
-    <div class="maincontainer">
-      <div class="menucontainer">
-          <i  class="fa-solid fa-align-justify  fa-lg"></i>
-          <i  class="fa-regular fa-circle-question fa-lg"></i>
-        <h1 id="heading">Wordle</h1>
-          <i  class="fa-solid fa-bahai fa-lg"></i>
-          <i  class="fa-solid fa-shuffle fa-lg"></i>
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <script src="script.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="wordle.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" />
+</head>
+
+<body>
+  <dialog id="settingsDialog" style="padding-top: 0; padding-right: 0;">
+    <div style="text-align-last: end;"><button id="btnCloseSettingsDialog" type="button"
+        onclick="closeSettingsDialog();">X</button></div>
+    select wordsize :
+
+    <div id="buttondiv" style="margin: auto;">
+      <button id="row5" onclick="supportedWordSize=5; rowaddition(maxrowcounter*supportedWordSize);">5</button>
+      <button id="row6" onclick="supportedWordSize=6; rowaddition(maxrowcounter*supportedWordSize);">6</button>
+      <button id="row7" onclick="supportedWordSize=7;  rowaddition(maxrowcounter*supportedWordSize);">7</button>
+      Darkmode : <input type="checkbox" onchange="switchTheme(event) ">
+    </div>
+  </dialog>
+
+  <div class="maincontainer">
+    <div class="menucontainer">
+      <i class="fa-solid fa-align-justify  fa-lg"></i>
+      <i class="fa-regular fa-circle-question fa-lg"></i>
+      <h1 id="heading">Wordle</h1>
+      <a href="#" style="float: right;" onclick="openSettingsDialog()"> <i class="fa-solid fa-bahai fa-lg"></i></a>
+      <i class="fa-solid fa-shuffle fa-lg" ></i>
+
+      
+    </div>
+    <hr color="">
+    <div style="margin: auto; ">
+      <!-- select wordsize : 
+    </div>
+      <div id="buttondiv" style="margin: auto;">
+      <button  id="row5" onclick = "supportedWordSize=5; rowaddition(maxrowcounter*supportedWordSize);">5</button>
+      <button id="row6" onclick = "supportedWordSize=6; rowaddition(maxrowcounter*supportedWordSize);">6</button>
+      <button id="row7" onclick = "supportedWordSize=7;  rowaddition(maxrowcounter*supportedWordSize);">7</button>
+      Darkmode : <input type="checkbox" onchange="switchTheme(event) ">
+    </div > -->
+      <div style="display: inline-block; margin: auto;">
+        <select name="drop" id="list" onchange=" rowaddition(this.value); ">
+          <option>25</option>
+          <option selected>30</option>
+          <option>35</option>
+        </select>
+
       </div>
-      <hr color="">
-      <div class="gamecontainer" id="gamediv">   
-        <div class="items" id="items1"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
-        <div class="items"></div>
+      <div class="gamecontainer" id="gamediv">
+
       </div>
-    
-        <div class="rows" id="keyfirstdiv">    
+
+      <div class="rows" id="keyfirstdiv">
         <div class="keys">Q</div>
         <div class="keys">W</div>
         <div class="keys">E</div>
@@ -64,7 +66,7 @@
         <div class="keys">P</div>
       </div>
       <div class="rows" id="keyseconddiv">
-        <div class="keys" >A</div>
+        <div class="keys">A</div>
         <div class="keys">S</div>
         <div class="keys">D</div>
         <div class="keys">F</div>
@@ -86,8 +88,9 @@
         <div class="keys" id="keyback">BSKP<i class="fa-solid fa-delete-left"></i></div>
       </div>
     </div>
-  <script src="/wordle/wordle.js"></script>
+    <script src="/wordle.js"></script>
 
-    
-  </body>
+
+</body>
+
 </html>
