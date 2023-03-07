@@ -12,12 +12,15 @@
     <div style="text-align-last: end;"><button id="btnCloseSettingsDialog" type="button"
         onclick="closeSettingsDialog();">X</button></div>
     select wordsize :
-
+      <br>
+      <br>
     <div id="buttondiv" style="margin: auto;">
-      <button id="row5" onclick="supportedWordSize=5; rowaddition(maxrowcounter*supportedWordSize);">5</button>
+      <button id="row5" onclick="supportedWordSize=5; rowaddition(maxrowcounter*supportedWordSize); ">5</button>
       <button id="row6" onclick="supportedWordSize=6; rowaddition(maxrowcounter*supportedWordSize);">6</button>
-      <button id="row7" onclick="supportedWordSize=7;  rowaddition(maxrowcounter*supportedWordSize);">7</button>
-      Darkmode : <input type="checkbox" onchange="switchTheme(event) ">
+      <button id="row7" onclick="supportedWordSize=7;  rowaddition(maxrowcounter*supportedWordSize); console.log(supportedWordSize)">7</button>
+      <br>
+      <br>
+      Darkmode : <input type="checkbox" id ="darkMode" onchange="switchTheme(event.target.checked) " >
     </div>
   </dialog>
 
@@ -32,7 +35,7 @@
       
     </div>
     <hr color="">
-    <div style="margin: auto; ">
+    <!-- <div style="margin: auto; "> -->
       <!-- select wordsize : 
     </div>
       <div id="buttondiv" style="margin: auto;">

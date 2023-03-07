@@ -5,14 +5,10 @@ var newWordSize = 25;
 var targetword = "";
 var supportedWordSize = 5;
 rowaddition(25);
-// var wordsize = 5;
-
 var rowcounter = 0;
 var maxrowcounter = 6;
-console.log("this is suportedwordsize :${supportedWordSize}");
 document.querySelectorAll('.keys').forEach(e => {
     e.id = e.innerText;
-    // console.log(e.id  +""+ e.innerText )
     e.addEventListener('click', function () {
 
         //if it is a backspace key last letter needs to be deleted
@@ -87,13 +83,12 @@ document.querySelectorAll('.keys').forEach(e => {
 function rowaddition(newWordSize) {
     currentword = '';
     rowcounter = 0;
-
     document.querySelectorAll('.keys').forEach(e => {
         e.style.backgroundColor = "darkgrey";
     })
-    var newwordarray = wordarray.filter(W => W.length == supportedWordSize)
-    targetword = newwordarray[Math.floor(supportedWordSize * (Math.random(1)))]
-    console.log
+    console.log(supportedWordSize);
+    var newwordarray = wordarray.filter(w => w.length == supportedWordSize)
+    targetword = newwordarray[Math.floor(newwordarray.length * (Math.random(1)))]
     document.getElementById("gamediv").innerHTML = "";
     for (let i = 0; i < newWordSize; i++) {
         var newcol = document.createElement('div');
@@ -131,14 +126,21 @@ function rowaddition(newWordSize) {
 
     }
 
+    var checked= document.getElementById('darkMode')
+    
+     switchTheme(checked.checked);
+
 }
-function switchTheme(e) {
-    if (e.target.checked) {
+function switchTheme(isDarkMode) {
+    if (isDarkMode) {
         document.querySelectorAll('body')[0].style.backgroundColor = "black";
         document.querySelectorAll('body')[0].style.color = "white";
         document.querySelectorAll('.items').forEach(el => {
             el.style.borderColor = "white";
+
         });
+        // document.querySelectorAll("dialog").style.backDrop.backgroundColor=rgba(255, 0, 0, 0.25)
+
 
 
     }
