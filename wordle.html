@@ -9,15 +9,15 @@
 
 <body>
   <dialog id="settingsDialog" style="padding-top: 0; padding-right: 0;">
-    <div style="text-align-last: end;"><button id="btnCloseSettingsDialog" type="button"
+    <div style="text-align-last: end; border-radius: 5px;"><button id="btnCloseSettingsDialog" type="button"
         onclick="closeSettingsDialog();">X</button></div>
     select wordsize :
       <br>
       <br>
     <div id="buttondiv" style="margin: auto;">
-      <button id="row5" onclick="supportedWordSize=5; rowaddition(maxrowcounter*supportedWordSize); ">5</button>
-      <button id="row6" onclick="supportedWordSize=6; rowaddition(maxrowcounter*supportedWordSize);">6</button>
-      <button id="row7" onclick="supportedWordSize=7;  rowaddition(maxrowcounter*supportedWordSize); console.log(supportedWordSize)">7</button>
+      <button id="row5" class="dialogbutton" onclick="supportedWordSize=5; rowaddition(maxrowcounter*supportedWordSize); ">5</button>
+      <button id="row6" class="dialogbutton" onclick="supportedWordSize=6; rowaddition(maxrowcounter*supportedWordSize);">6</button>
+      <button id="row7" class="dialogbutton" onclick="supportedWordSize=7;  rowaddition(maxrowcounter*supportedWordSize); console.log(supportedWordSize)">7</button>
       <br>
       <br>
       Darkmode : <input type="checkbox" id ="darkMode" onchange="switchTheme(event.target.checked) " >
@@ -91,7 +91,7 @@
         <div class="keys" id="keyback">BSKP<i class="fa-solid fa-delete-left"></i></div>
       </div>
     </div>
-    <script src="/wordle.js"></script>
+    <script src="./wordle.js"></script>
 
 
 </body>
